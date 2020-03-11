@@ -1,0 +1,129 @@
+body, div, ul, li, p{margin: 0; padding: 0;}
+li{list-style: none}
+
+.GRRSlider{
+	width: 500px;	/* размеры */
+	height: 300px;	/* размеры */
+	background-color: #000;	/* Цвет для перекрытия фотки */
+	position: relative;
+	z-index: 100;
+	color: #fff;
+}
+
+.GRRSlider li{
+	opacity: 0%;
+}
+.GRRSlider li.GRRFirstShowSlide{
+	opacity: 100%;
+}
+.GRRSliderUl li{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.GRRSliderUl li img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	z-index: 110;
+	opacity: 70%; 	/* задаем прозрачность картинки */
+}
+.GRRSlider li div{
+	position: relative;
+    z-index: 115;
+	top: 30%;
+	text-align: center;
+}
+
+.GRRTuggle{
+	position: absolute;
+	top: 130px;
+	width: 100%;
+	font-size: 50px;
+	height: 0px;
+}
+.GRRTuggle input{	
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	color: #fff;
+	background-color: rgba(0,0,0,0);
+	border: 2px solid #fff;
+	border-radius: 50%;
+	outline: none;
+	z-index: 120;
+}
+.GRRTuggle input:hover{
+	background-color: rgba(255,255,255, 0.2);
+}
+.GRRTuggle input:first-child{
+	float: left;
+	position: absolute;
+	left: 10px;
+}
+.GRRTuggle input:last-child{
+	float: right;
+	position: absolute;
+	right: 10px;
+}
+
+#GRRKnobs{
+	width: 100%;
+	position: absolute;
+	z-index: 120;
+	bottom: 20px;	
+	text-align: center;
+}
+#GRRKnobs input{
+	width: 20px;
+	height: 20px;
+	margin: 0 10px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	background-color: rgba(0,0,0,0);
+	outline: none;
+}
+#GRRKnobs #GRRKnobSelected{
+	background-color: rgba(255,255,255, 0.5);
+}
+
+
+
+/* анимация */
+@keyframes animGRRHideSlide{
+	from{
+		opacity: 100%;
+	}to{
+		opacity: 0%;
+	}
+}
+@keyframes animGRRShowSlide{
+	from{
+		opacity: 0%;
+	}to{
+		opacity: 100%;
+	}
+}
+
+.GRRHideSlide{
+	animation: animGRRHideSlide 1s forwards;
+}
+.GRRShowSlide{
+	animation: animGRRShowSlide 1s forwards;
+}
+
+@keyframes animGRRShowDiv{
+	0%{
+		top: 30%
+	}
+	10%{
+		top: 35%
+	}
+	100%{
+		top: 0%
+	}
+}
+.GRRSlider li.GRRHideSlide div{
+	animation: animGRRShowDiv 1s forwards;
+}
